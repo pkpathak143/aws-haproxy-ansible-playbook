@@ -1,0 +1,40 @@
+- hosts: localhost
+  tasks:
+    - name: "Launching an Instance on AWS cloud for Haproxy"
+      ec2_instance:
+        region: ap-south-1
+        image_id: ami-08e0ca9924195beba
+        instance_type: t2.micro
+        vpc_subnet_id: subnet-339a925b
+        name: "Haproxy"
+        security_group: sg-d2b53db5
+        key_name: myhadoopos
+        state: present
+        aws_access_key: YOUR-ACCESS-KEY
+        aws_secret_key: YOUR-SECTER_KEY
+
+    - name: "Launching an Instance on AWS cloud for WebServer1"
+      ec2_instance:
+        region: ap-south-1
+        image_id: ami-08e0ca9924195beba
+        instance_type: t2.micro
+        vpc_subnet_id: subnet-339a925b
+        name: "Web-server-1"
+        security_group: sg-d2b53db5
+        key_name: myhadoopos
+        state: present
+        aws_access_key: YOUR-ACCESS-KEY
+        aws_secret_key: YOUR-SECTER_KEY
+    - name: "Launching an Instance on AWS cloud for WebServer2"
+      ec2_instance:
+        region: ap-south-1
+        image_id: ami-08e0ca9924195beba
+        instance_type: t2.micro
+        vpc_subnet_id: subnet-339a925b
+        name: "Web-server-2"
+        security_group: sg-d2b53db5
+        key_name: myhadoopos
+        state: present
+        aws_access_key: YOUR-ACCESS-KEY
+        aws_secret_key: YOUR-SECTER_KEY
+
